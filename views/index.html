@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Elder Monitoring System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <script>
+        $(() => {
+            $("#someid").load("./someviee.html")
+            $("#clickBtn").on("click", () => {
+                const URL = "http://localhost:7777/diabeticSearch/000002"
+                //const URL = "http://localhost:7777/welcome"
+                $.get(URL, function (data) {
+                    console.log(data)
+                    var form = `userID : ${data.userID}<br/> \
+                            Name : ${data.fullname}<br/> `
+                    data.timestamps.forEach(array => {
+                        form += `Time : ${array.time}<br/> \
+                        Blood suger : ${array.bloodSugar}<br/> \
+                        detectorLicenseID : ${array.detectorLicenseID}<br/><br/>`
+                    });
+                    $('#resultArea').html(form)
+                })
+            })
+        })
+    </script>
+</head>
+<header>
+    <div id="navmenu"></div>
+</header>
+
+<body>
+    <div class="container-fluid">
+        <div><br></div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+                <button type="button" class="btn-primary" id="clickBtn">Click me</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="jumbotron h1" id="resultArea">
+            </div>
+        </div>
+    </div>
+</body>

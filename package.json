@@ -1,0 +1,19 @@
+{
+  "name": "elder",
+  "version": "1.0.0",
+  "description": "Elder API",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "Elder"
+  ],
+  "author": "Wichaivit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.8.3"
+  }
+}
